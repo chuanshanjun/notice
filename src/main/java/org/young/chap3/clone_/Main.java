@@ -16,7 +16,7 @@ public class Main implements Cloneable {
     }
 
     /**
-     * <h2>浅拷贝，修改引对对象则对原对象和拷贝对象都有影像</h2>
+     * <h2>浅拷贝，修改引对对象则对原对象和拷贝对象都有影响</h2>
      * @throws CloneNotSupportedException
      */
     private static void copyTest() throws CloneNotSupportedException {

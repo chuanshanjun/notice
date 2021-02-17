@@ -35,7 +35,7 @@ public class Main {
     }
 
     /**
-     * <h2>优化使用append后，则在for循环中只会append</h2>
+     * <h2>优化使用stringbuilder后，则在for循环中只会append</h2>
      */
     private static void explicitUseStringBuilder(String[] values) {
         StringBuilder result = new StringBuilder();
