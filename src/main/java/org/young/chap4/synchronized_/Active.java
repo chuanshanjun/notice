@@ -1,11 +1,11 @@
-package org.young.chap4;
+package org.young.chap4.synchronized_;
 
 /**
  * @author:ChuanShanJun
  * @date:2021/2/17
  * @description:
  */
-public class SubActive extends Active {
+public class Active implements Runnable {
 
     private int value = 1000;
 

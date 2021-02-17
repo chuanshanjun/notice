@@ -1,4 +1,4 @@
-package org.young.chap4;
+package org.young.chap4.synchronized_;
 
 /**
  * @author:ChuanShanJun
