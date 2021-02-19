@@ -23,9 +23,14 @@ public class EasyUseThreadPool {
      * 拒绝任务并且抛出异常
      */
     private static void customThreadCore() {
+        // 使用默认拒绝策略
+//        ThreadPoolExecutor executor = new ThreadPoolExecutor(1,
+//                1, 30, TimeUnit.MINUTES,
+//                new ArrayBlockingQueue<Runnable>(2));
+
         ThreadPoolExecutor executor = new ThreadPoolExecutor(1,
                 1, 30, TimeUnit.MINUTES,
-                new ArrayBlockingQueue<Runnable>(2));
+                new ArrayBlockingQueue<Runnable>(2), new CustomRejectedExecutionHandler());
 
         for (int i = 0; i !=5; i++) {
             executor.execute(new Reading("Java 实战", 5));
@@ -37,6 +42,22 @@ public class EasyUseThreadPool {
 
         // 用完线程池要记得关闭
         executor.shutdown();
+    }
+
+    /**
+     * <h2>自定义线程池拒绝策略</h2>
+     * 将被拒绝的任务重新放回队列，阻塞式
+     */
+    private static class CustomRejectedExecutionHandler implements RejectedExecutionHandler {
+
+        @Override
+        public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
+            try {
+                executor.getQueue().put(r);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public static void main(String[] args) {
