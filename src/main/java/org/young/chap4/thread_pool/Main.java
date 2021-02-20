@@ -9,7 +9,8 @@ import java.util.concurrent.ExecutorService;
  */
 public class Main {
     public static void main(String[] args) {
-        ExecutorService executorService = ExecutorsUtil.newFixedThreadPool(3, "young");
+//        ExecutorService executorService = ExecutorsUtil.newFixedThreadPool(3, "young");
+        ExecutorService executorService = ThreadPoolUtils.newFixedThreadPool(3, "young");
 
         for (int i = 0; i !=5; i++) {
             executorService.execute(new Reading("Java 实战", 5));

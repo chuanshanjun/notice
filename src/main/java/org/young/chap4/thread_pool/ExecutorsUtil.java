@@ -24,9 +24,9 @@ public class ExecutorsUtil extends ThreadPoolExecutor {
 
     @Override
     protected void afterExecute(Runnable r, Throwable t) {
-        Date startTime = this.startTime.remove(String.valueOf(r.hashCode()));
+        Date start = this.startTime.remove(String.valueOf(r.hashCode()));
         Date endTime = new Date();
-        long diff = endTime.getTime() - startTime.getTime();
+        long diff = endTime.getTime() - start.getTime();
         System.out.printf("task running time %d\n", diff);
         super.afterExecute(r, t);
     }
