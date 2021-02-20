@@ -26,6 +26,7 @@ public class Reading implements Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            counts--;
         }
     }
 }
