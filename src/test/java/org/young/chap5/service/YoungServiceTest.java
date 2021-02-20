@@ -21,6 +21,7 @@ public class YoungServiceTest implements ApplicationContextAware {
      * ex YOungService -> YOungService
      * 解决方案1 @Service("youngService") 在注解中声明
      * 结局方案2 通过class获取
+     * beanName生成类 -> AnnotationBeanNameGenerator
      */
     @Test
     public void getBeanName() {
