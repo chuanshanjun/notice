@@ -28,4 +28,8 @@ public class Person {
 
     @Column(name = "sex")
     private Byte Byte;
+
+    public Person(String name) {
+        this.name = name;
+    }
 }
