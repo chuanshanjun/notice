@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.young.chap6.http_request_response.UserInterceptor;
 
 /**
  * @author:ChuanShanJun
@@ -18,5 +19,7 @@ public class WebInterceptorAdapter implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new LogInterceptor()).addPathPatterns("/**").order(0);
         registry.addInterceptor(new UpdateLogInterceptor()).addPathPatterns("/**").order(1);
+
+        registry.addInterceptor(new UserInterceptor()).addPathPatterns("/**").order(2);
     }
 }
