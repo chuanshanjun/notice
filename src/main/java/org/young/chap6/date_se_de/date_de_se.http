@@ -1,0 +1,12 @@
+###
+GET http://localhost:8080/need/date/param?date=2021-01-02 23:59:59
+Accept: application/json
+
+###
+POST http://localhost:8080/need/date/param
+Content-Type: application/json
+
+{
+  "name": "young",
+  "birthday": "2021-01-02 23:59:59"
+}
